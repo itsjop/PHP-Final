@@ -1,0 +1,20 @@
+Prior to beginning you must run the alterCustomer.sql file in the SQL folder of the homework.
+
+config.php
+1. Start the session
+2. if customerID is not set in the session and current URL not login.php redirect to login page
+3. Else if session key customerID is set get $customer from the database
+
+getCustomer.sql
+4. Select customers where the customerid is equal to a passed customer id
+
+attemptLogin.php
+5. Select customers where the username and password match those passed as parameters
+
+index.php
+6. Print "Currently accessed by {current username}"
+7. A link to the logout.php file
+
+logout.php
+8. Destroy the current session
+9. Redirect to the login page
