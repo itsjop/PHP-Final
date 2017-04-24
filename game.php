@@ -55,8 +55,8 @@ $genres = $statement->fetchAll(PDO::FETCH_ASSOC);
 	<div class="page">
 		<h1><?php echo $game['title'] ?></h1>
 		<p>
-			<?php echo $game['developer']; ?><br />
-			<?php echo $game['price']; ?><br />
+			Developed By: <?php echo $game['developer']; ?><br />
+			Price: $<?php echo $game['price']; ?><br />
 		</p>
 		
 		<ul>

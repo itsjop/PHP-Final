@@ -28,7 +28,7 @@ $games = searchGames($term, $database);
         <meta name="author" content="SitePoint">
 
         <link rel="stylesheet" href="css/style.css">
-
+        <link rel="stylesheet" href="css/font-awesome.min.css">
         <!--[if lt IE 9]>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
   	<![endif]-->
@@ -41,22 +41,30 @@ $games = searchGames($term, $database);
         </p>-->
         <!--<p><a href="logout.php">Logout</a></p>-->
         <div class="page">
-            <h1>Games</h1>
-            <form method="GET">
+            <span class="pagetitle">Games</span>
+            <form class="search" method="GET">
                 <input type="text" name="search-term" placeholder="Search..." />
                 <input type="submit" />
             </form>
             <br>
             <hr>
             <?php foreach($games as $game) : ?>
-            <p>
+            <div class="game_card" style="background-image: url('images/<?php echo $game['art'] ?>')">
+                <div class="details">
+                    <p><span class="gametitle"><?php echo $game['title']; ?><br /></span></p>
+                    <div class="info">
+                        <p class="price">$
+                            <?php echo $game['price']; ?>
+                        </p>
+                        <p class="developer">Developer: <br>
+                            <span class="dev2"><?php echo $game['developer']; ?> </span></p>
+                    </div>
 
-                <p>Name: <?php echo $game['title']; ?><br /></p>
-                <p>Developer: <?php echo $game['developer']; ?> <br /></p>
-                <p>Price: $<?php echo $game['price']; ?> <br /></p>
-                <a href="form.php?action=edit&gameID=<?php echo $game['gameID'] ?>">Edit Game</a><br />
-                <a href="game.php?gameID=<?php echo $game['gameID'] ?>">View Game</a>
-            </p>  <hr>
+                    <a class="game-icon game-edit" href="form.php?action=edit&gameID=<?php echo $game['gameID'] ?>"><i class="  fa fa-pencil-square" aria-hidden="true"></i></a>
+
+                    <a class="game-icon game-view" href="game.php?gameID=<?php echo $game['gameID'] ?>"><i class=" fa fa-search" aria-hidden="true"></i></a>
+                </div>
+            </div>
             <?php endforeach; ?>
 
             <!-- print currently accessed by the current username -->

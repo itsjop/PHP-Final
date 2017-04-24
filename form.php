@@ -149,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		<h1>Manage Game</h1>
 		<form action="" method="POST">
 			<div class="form-element">
-				<label>Game:</label>
+				<label>GameID:</label>
 				<?php if($action == 'add') : ?>
 					<input type="text" name="gameID" class="textbox" value="<?php echo $game['gameID'] ?>" />
 				<?php else : ?>
